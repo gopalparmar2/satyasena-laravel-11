@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    <Files .env>
+        order allow,deny
+        Deny from all
+    </Files>
+
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>
